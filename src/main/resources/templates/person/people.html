@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+</head>
+<body>
+
+<h3>Список людей:</h3>
+
+<div th:each="person: ${people}">
+    <span>
+        <a th:href="'/admin/person_info?id=' + ${person.getId()}">
+            <font size="4"><strong
+                    th:text="${person.getName()}  + ', ' + ${person.getAge()}"></strong></font>
+        </a>
+    </span><br>
+</div>
+
+<br>
+<hr>
+
+<form th:method="GET" th:action="'/admin/add'">
+    <input type="submit" value="Добавить пользователя">
+</form>
+
+<a href="/logout">Выйти из страницы</a>
+
+</body>
+
+</html>
